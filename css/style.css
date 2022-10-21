@@ -1,0 +1,47 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 1600px;
+    height: 100vh;
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    border: 2px solid black;
+}
+
+.items{
+    width: 1400px;
+    height: 550px;
+
+    border: 2px solid blueviolet;
+}
+
+.thumbs{
+    width: 1400px;
+    height: 250px;
+
+    border: 2px solid green;
+    display: flex;
+    
+
+    position: relative;
+}
+
+.thumb {
+    width: calc(100% / 5);
+    height: 250px;
+
+    border: 2px solid aqua;
+}
+
+.next, .prev{
+    position: absolute;
+}
