@@ -30,6 +30,7 @@
     height: 100%;
 
     display: none;
+    position: relative;
 }
 
 .item.active {
@@ -40,6 +41,25 @@
     width: 100%;
     height: 100%;
     object-position:center;
+
+    
+}
+
+.item-text{
+    text-align: end;
+    width: 95%;
+
+    color: white;
+    position: absolute;
+    z-index: 6;
+    top: 5%;
+    font-size: 1.5rem;
+
+    text-shadow: 2px 2px grey;
+}
+
+#itemTitle{
+    margin-bottom: 1.5rem;
 }
 
 /* THUMBS */
@@ -84,6 +104,7 @@
     border-radius: 50%;
 
     cursor: pointer;
+    z-index: 5;
 }
 
 .next{
@@ -112,5 +133,7 @@ button{
     border: none;
     border-radius: 5px;
 
-    padding: .6rem;
+    padding: .8rem;
+
+    cursor: pointer;
 }
