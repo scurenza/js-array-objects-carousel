@@ -103,6 +103,26 @@ prevBtn.addEventListener("click", function() {
 });
 
 
+// Aggiungere eventListener ad ogni img del thumb
+
+for (let i = 0; i < thumbItems.length; i++) {
+    const thisThumb = thumbItems[i]
+
+    thisThumb.addEventListener("click", function() {
+
+        // Rimuovo lo stato di active dall'elemento corrente
+        thumbItems[activeItem].classList.remove("active");
+        sliderItems[activeItem].classList.remove("active");
+    
+        // Assegno ad activeItem il valore di index
+        activeItem = i;
+    
+        // Aggiungo lo stato active all'elemento selezionato
+        thumbItems[activeItem].classList.add("active");
+        sliderItems[activeItem].classList.add("active");
+})};
+
+
 
 
 
