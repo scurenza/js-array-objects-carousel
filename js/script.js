@@ -66,7 +66,7 @@ const prevBtn = document.querySelector(".prev");
 
 // Azione al click del bottone "avanti"
 nextBtn.addEventListener("click", function () {
-        // Funzione per poter passare all'immagine successiva
+    // Funzione per poter passare all'immagine successiva
 
     // Rimuovo l'active all'immagine "precedente"
     sliderItems[activeItem].classList.remove("active");
@@ -122,8 +122,64 @@ for (let i = 0; i < thumbItems.length; i++) {
         sliderItems[activeItem].classList.add("active");
 })};
 
+// Imposto l'autoplay
+const autoplay = setInterval(autoplayFunction, 3000);
+// const revertAutoplay = setInterval(revertAutoplayFunction, 3000);
+const stopBtn = document.getElementById("stop-autoplay");
+const invertBtn = document.getElementById("invert-autoplay");
+let isRevertAutoplay = false;
 
 
+
+// Fermo l'autoplay
+stopBtn.addEventListener("click", function() {
+    clearInterval(autoplay);
+})
+
+// Inverto l'autoplay
+invertBtn.addEventListener("click", function() {
+    isRevertAutoplay = true;
+})
+
+
+
+/**
+ * Funzione per gestire l'autoplay
+ * @returns {any} senso di visualizzazione delle immagini
+ */
+function autoplayFunction () {
+    if(!isRevertAutoplay) {
+                // Rimuovo l'active all'immagine "precedente"
+                sliderItems[activeItem].classList.remove("active");
+                thumbItems[activeItem].classList.remove("active");
+            
+                // Aggiungo l'active all'immagine "succesiva" SE POSSO
+                if (activeItem < sliderItems.length - 1) {
+                    activeItem++;
+                } else {
+                    activeItem = 0;
+                }
+            
+                // Mostro l'immagine "successiva"
+                sliderItems[activeItem].classList.add("active");
+                thumbItems[activeItem].classList.add("active");
+    } else {
+                // Rimuovo l'active all'immagine "precedente"
+                sliderItems[activeItem].classList.remove("active");
+                thumbItems[activeItem].classList.remove("active");
+            
+                    // Aggiungo l'active all'immagine "precendente" SE POSSO
+                    if (activeItem > 0) {
+                    activeItem--;
+                } else {
+                    activeItem = sliderItems.length - 1;
+                }
+            
+                // Mostro l'immagine "precendente"
+                sliderItems[activeItem].classList.add("active");
+                thumbItems[activeItem].classList.add("active");
+    }
+};
 
 
 
